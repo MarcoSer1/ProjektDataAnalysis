@@ -7,6 +7,7 @@ Dieses Projekt analysiert Online-Beschwerdedaten des Berliner Ordnungsamts, um h
 Um dieses Projekt auszuführen, müssen Sie zuerst eine Conda-Umgebung einrichten und die erforderlichen Pakete installieren. Stellen Sie sicher, dass Conda auf Ihrem System installiert ist, und folgen Sie den untenstehenden Schritten:
 
 **1. Klonen des Repositorys:**
+
 git clone https://github.com/MarcoSer1/ProjektDataAnalysis
 
 cd <Repository_Name>
