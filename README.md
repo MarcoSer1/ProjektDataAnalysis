@@ -3,14 +3,22 @@
 ## Beschreibung
 Dieses Projekt analysiert Online-Beschwerdedaten des Berliner Ordnungsamts, um häufige Themen und Beschwerden mittels Natural Language Processing (NLP) Techniken zu identifizieren. Es verwendet Methoden wie Textvorverarbeitung, Bag-of-Words (BoW), TF-IDF, Latent Semantic Analysis (LSA) und Latent Dirichlet Allocation (LDA) zur Extraktion und Analyse der Themen.
 
+## System-Requirements
+- Python Installation (https://www.python.org/downloads/)
+- Tool zum herunterladen des Repository (Bspw. Git-Scm: https://git-scm.com/)
+- Um eine Conda-Umgebung zu erstellen und zu nutzen, müssen Sie sicherstellen, dass Conda auf Ihrem System installiert ist.
+  - Bspw.: Anaconda- oder Miniconda-Distributionen (https://docs.anaconda.com/free/miniconda/).
+
 ## Installation
 Um dieses Projekt auszuführen, müssen Sie zuerst eine Conda-Umgebung einrichten und die erforderlichen Pakete installieren. Stellen Sie sicher, dass Conda auf Ihrem System installiert ist, und folgen Sie den untenstehenden Schritten:
+
+Conda Terminal öffnen
 
 **1. Klonen des Repositorys:**
 
 git clone https://github.com/MarcoSer1/ProjektDataAnalysis
 
-cd <Repository_Name>
+cd <Repository_Pfad>
 
 **2. Erstellen der Conda-Umgebung:**
 
