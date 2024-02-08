@@ -20,8 +20,13 @@ git clone https://github.com/MarcoSer1/ProjektDataAnalysis
 cd <Repository_Pfad>
 
 **2. Erstellen der Conda-Umgebung:**
+**2.1 Unter Windows:**
 ```
 conda env create -f environment.yml
+```
+**2.2 Unter Linux:**
+```
+conda env create -f environmentLinux.yml
 ```
 **3. Aktivieren der Umgebung:**
 ```
