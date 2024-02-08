@@ -20,17 +20,17 @@ git clone https://github.com/MarcoSer1/ProjektDataAnalysis
 cd <Repository_Pfad>
 
 **2. Erstellen der Conda-Umgebung:**
-
+```
 conda env create -f environment.yml
-
+```
 **3. Aktivieren der Umgebung:**
-
+```
 conda activate ProjektDataAnalysis
-
+```
 **4. Ausführen des Programms:**
-
-python AnalyseData.py
-
+```
+python PythonCode.py
+```
 ## Funktion des Codes:
 
 - **preprocess_complex_words(text):** Bereinigt den Text, indem spezifische Muster durch angepasste Formen ersetzt werden.
