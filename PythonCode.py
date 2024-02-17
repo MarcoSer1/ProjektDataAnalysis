@@ -67,7 +67,6 @@ def preprocess_complex_words(text):
     # Ersetze spezifische Muster durch angepasste Formen
     text = re.sub(r'Park- und Haltverbot', 'Park-/Haltverbot', text)
     text = re.sub(r'Anwohner-, Gästevignetten', 'Anwohner-/Gästevignetten', text)
-    # Fügen Sie hier weitere Regeln hinzu, falls erforderlich
     return text
 
 def clean_text(text):
