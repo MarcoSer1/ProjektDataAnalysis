@@ -37,7 +37,7 @@ conda activate ProjektDataAnalysis
 ```
 python PythonCode.py
 ```
-## Funktion des Codes:
+## Funktionen des Codes:
 
 - **preprocess_complex_words(text):** Bereinigt den Text, indem spezifische Muster durch angepasste Formen ersetzt werden.
 
