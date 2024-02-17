@@ -248,6 +248,9 @@ def perform_lda(text_list, n_topics=5, n_top_words=10):
         print(" ".join([feature_names[i] for i in topic.argsort()[:-n_top_words - 1:-1]]))
         print()
 
+betreff_strings = [' '.join(tokens) for tokens in cleaned_betreff_liste]
+sachverhalt_strings = [' '.join(tokens) for tokens in cleaned_sachverhalt_liste]
+
 # Anwendung der LDA-Funktion auf die Betreff- und Sachverhalt-Daten
 print("LDA für Betreff:")
 perform_lda(betreff_strings)
