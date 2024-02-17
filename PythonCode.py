@@ -27,7 +27,6 @@ from sklearn.decomposition import TruncatedSVD
 from sklearn.pipeline import make_pipeline
 from sklearn.preprocessing import Normalizer
 
-
 ##Bereinigung des Textes
 # Lade den JSON-Datensatz
 with open('Ordnungsamt-Onlinemeldungen.json', 'r', encoding='utf-8') as file:
