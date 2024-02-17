@@ -83,11 +83,11 @@ def clean_text(text):
     tokens = [remove_unwanted_characters(token) for token in tokens]
 
     # Liste der zu entfernenden spezifischen Wörter
-    unwanted_words = {'ca', 'w3w5xd', 'seit'} # evtl. seit rausnehmen?
+    unwanted_words = {'ca', 'w3w5xd', 'seit'} 
     tokens = [token for token in tokens if token.lower() not in unwanted_words]
 
     # Entfernung von Stoppwörtern
-    stop_words = set(stopwords.words('german'))  # Sie können die Stopwortliste anpassen
+    stop_words = set(stopwords.words('german')) 
     tokens = [word for word in tokens if word.lower() not in stop_words and word not in string.punctuation]
     
     # Lemmatisierung
@@ -102,7 +102,7 @@ def clean_text(text):
 cleaned_betreff_liste = [clean_text(betreff) for betreff in betreff_liste if betreff is not None]
 
 # Ausgabe der bereinigten Betreff-Liste
-#for index, betreff in enumerate(cleaned_betreff_liste[:5]):
+#for index, betreff in enumerate(cleaned_betreff_liste[:5]): # Fall nur die ersten 5 relevant sind
 #    print(f'{index + 1}. {betreff}')
 print("Betreff-Liste (erste und letzte 5 Einträge):")
 if len(cleaned_betreff_liste) > 10:
@@ -120,7 +120,7 @@ else:
 cleaned_sachverhalt_liste = [clean_text(sachverhalt) for sachverhalt in sachverhalt_liste if sachverhalt is not None]
 
 # Ausgabe der bereinigten Sachverhalts-Liste
-#for index, sachverhalt in enumerate(cleaned_sachverhalt_liste[:5]):
+#for index, sachverhalt in enumerate(cleaned_sachverhalt_liste[:5]): # Fall nur die ersten 5 relevant sind
 #    print(f'{index + 1}. {sachverhalt}')
 
 print("Sachverhalt-Liste (erste und letzte 5 Einträge):")
@@ -142,7 +142,7 @@ def generate_bag_of_words(text_list):
     text_strings = [' '.join(tokens) for tokens in text_list]
 
     # Erstellen einer Instanz von CountVectorizer; CountVectorizer erwartet einen String
-    vectorizer = CountVectorizer()
+    vectorizer = CountVectorizer(ngram_range=(1,2))
 
     # Vektorisierer auf Daten anwenden
     text_bow = vectorizer.fit_transform(text_strings)
@@ -189,7 +189,7 @@ def tfidf_vectorize_as_single_document(token_lists):
     combined_text = ' '.join([' '.join(tokens) for tokens in token_lists])
 
     # Erstellung und Anwendung des TfidfVectorizer
-    vectorizer = TfidfVectorizer()
+    vectorizer = TfidfVectorizer(ngram_range=(1,2))
     tfidf_matrix = vectorizer.fit_transform([combined_text])
 
     # Umwandlung der TF-IDF-Matrix in einen DataFrame
@@ -233,13 +233,13 @@ print(sorted_sachverhalt_tfidf.head())
 
 ## LDA für Betreff & Sachverhalt
 def perform_lda(text_list, n_topics=5, n_top_words=10):
-    # Erstellen und Anwenden des CountVectorizer
-    vectorizer = CountVectorizer()
-    text_bow = vectorizer.fit_transform(text_list)
+    # Erstellen und Anwenden des TfidfVectorizer
+    vectorizer = TfidfVectorizer()
+    text_tfidf = vectorizer.fit_transform(text_list)
 
     # Erstellen und Anwenden der LDA
     lda = LatentDirichletAllocation(n_components=n_topics, random_state=0)
-    lda.fit(text_bow)
+    lda.fit(text_tfidf)
 
     # Anzeigen der Top-Wörter für jedes Thema
     feature_names = vectorizer.get_feature_names_out()
@@ -249,11 +249,6 @@ def perform_lda(text_list, n_topics=5, n_top_words=10):
         print()
 
 # Anwendung der LDA-Funktion auf die Betreff- und Sachverhalt-Daten
-# Beispiel: Umwandeln der Listen in Strings
-betreff_strings = [' '.join(tokens) for tokens in cleaned_betreff_liste]
-sachverhalt_strings = [' '.join(tokens) for tokens in cleaned_sachverhalt_liste]
-
-# LDA durchführen
 print("LDA für Betreff:")
 perform_lda(betreff_strings)
 
@@ -261,7 +256,6 @@ print("LDA für Sachverhalt:")
 perform_lda(sachverhalt_strings)
 
 ## LSA für Betreff & Sachverhalt
-
 def perform_lsa(text_list, n_topics=5, n_top_words=10):
     # Erstellung und Anwendung des TfidfVectorizer
     vectorizer = TfidfVectorizer()
