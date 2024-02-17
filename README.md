@@ -45,5 +45,13 @@ python PythonCode.py
 
 - **clean_text(text):** Führt die gesamte Textvorverarbeitung durch, einschließlich Tokenisierung, Entfernung von Stoppwörtern, Lemmatisierung und weiterer Bereinigung.
 
+- **generate_bag_of_words(text_liste):** Daten vorbereiten, erstellen einer Instanz von CountVectorizer, Vektorisierer auf Daten anwenden, ermitteln der Worthäufigkeit.
+
+- **tfidf_vectorize_as_single_document(token_lists):** Umwandlung der Token-Listen in Strings und Zusammenführen zu einem einzigen Dokument, Erstellung und Anwendung des TfidfVectorizer und die Umwandlung der TF-IDF-Matrix in einen DataFrame.
+
+- **perform_lda(text_list, n_topics=5, n_top_words=10):** Erstellen und Anwenden des CountVectorizer, erstellen und anwenden der LDA und anzeigen der Top-Wörter für jedes Thema.
+
+- **perform_lsa(text_list, n_topics=5, n_top_words=10):** Erstellung und Anwendung des TfidfVectorizer, Durchführung der LSA, anzeigen der Top-Wörter für jedes Thema.
+
 - Der Code verarbeitet die Daten schrittweise, um "saubere Texte" zu erzeugen, die dann für die Vektorisierung und anschließende Themenextraktion verwendet werden.
 
