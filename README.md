@@ -23,7 +23,7 @@ cd <Repository_Pfad>
 
 **2.1 Unter Windows:**
 ```
-conda env create -f environment.yml
+conda env create -f environmentWindows.yml
 ```
 **2.2 Unter Linux(Ubuntu):**
 ```
